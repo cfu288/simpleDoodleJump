@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYP-lk-qZI" customClass="GameView">
+                                <rect key="frame" x="0.0" y="28" width="375" height="581"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aca-t2-8o2">
+                                        <rect key="frame" x="15" y="8" width="47" height="30"/>
+                                        <state key="normal" title="Bricks!"/>
+                                        <connections>
+                                            <action selector="makeBricks:" destination="CYP-lk-qZI" eventType="touchUpInside" id="Pup-7A-NVf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Aca-t2-8o2" firstAttribute="top" secondItem="CYP-lk-qZI" secondAttribute="top" constant="8" id="4Ww-Pf-YXs"/>
+                                    <constraint firstItem="Aca-t2-8o2" firstAttribute="leading" secondItem="CYP-lk-qZI" secondAttribute="leading" constant="15" id="J5e-rT-8cJ"/>
+                                </constraints>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LJ4-FD-gfP">
+                                <rect key="frame" x="14" y="617" width="347" height="31"/>
+                                <connections>
+                                    <action selector="speedChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="0F8-80-m30"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="LJ4-FD-gfP" secondAttribute="leading" id="3E9-qo-Z7R"/>
+                            <constraint firstItem="CYP-lk-qZI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="A7O-aT-bz7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LJ4-FD-gfP" secondAttribute="trailing" id="JP3-KI-OiT"/>
+                            <constraint firstItem="CYP-lk-qZI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="pVo-gj-PHn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LJ4-FD-gfP" secondAttribute="bottom" constant="20" id="u56-Vc-Iok"/>
+                            <constraint firstItem="LJ4-FD-gfP" firstAttribute="top" secondItem="CYP-lk-qZI" secondAttribute="bottom" constant="8" id="xo3-gJ-w9r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CYP-lk-qZI" secondAttribute="trailing" constant="-16" id="zVO-ab-odj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gameView" destination="CYP-lk-qZI" id="3gy-YJ-IUk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+        </scene>
+    </scenes>
+</document>
