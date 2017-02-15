@@ -12,3 +12,4 @@ The physics simulation is simple; it should be easy to modify.
 iOS has some APIs that make this sort of animation even easier -- but for this one, we're doing it kind
 of "old school" to show what sorts of things are under the hood of the APIs.
 
+*Christopher Fu*

@@ -19,7 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     _displayLink = [CADisplayLink displayLinkWithTarget:_gameView selector:@selector(arrange:)];
-    [_displayLink setPreferredFramesPerSecond:30];
+    [_displayLink setPreferredFramesPerSecond:60];
     [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
 }
 

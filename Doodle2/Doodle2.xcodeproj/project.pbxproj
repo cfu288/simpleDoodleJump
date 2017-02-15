@@ -16,6 +16,7 @@
 		747989551E46865F002B62A0 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 747989541E46865F002B62A0 /* GameView.m */; };
 		747989581E477E1A002B62A0 /* Jumper.m in Sources */ = {isa = PBXBuildFile; fileRef = 747989571E477E1A002B62A0 /* Jumper.m */; };
 		7479895B1E477E2C002B62A0 /* Brick.m in Sources */ = {isa = PBXBuildFile; fileRef = 7479895A1E477E2C002B62A0 /* Brick.m */; };
+		83754FA71E4D3B0F00FABC13 /* jumper.png in Resources */ = {isa = PBXBuildFile; fileRef = 83754FA61E4D3B0F00FABC13 /* jumper.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		747989571E477E1A002B62A0 /* Jumper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Jumper.m; sourceTree = "<group>"; };
 		747989591E477E2C002B62A0 /* Brick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brick.h; sourceTree = "<group>"; };
 		7479895A1E477E2C002B62A0 /* Brick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brick.m; sourceTree = "<group>"; };
+		83754FA61E4D3B0F00FABC13 /* jumper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jumper.png; path = Assets.xcassets/jumper.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		7479893C1E46863A002B62A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				83754FA61E4D3B0F00FABC13 /* jumper.png */,
 				7479893D1E46863A002B62A0 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -153,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83754FA71E4D3B0F00FABC13 /* jumper.png in Resources */,
 				7479894C1E46863A002B62A0 /* LaunchScreen.storyboard in Resources */,
 				747989491E46863A002B62A0 /* Assets.xcassets in Resources */,
 				747989471E46863A002B62A0 /* Main.storyboard in Resources */,
