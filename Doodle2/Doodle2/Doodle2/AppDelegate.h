@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AppDelegate.h
 //  Doodle2
 //
 //  Created by Patrick Madden on 2/4/17.
@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GameView.h"
 
-@interface ViewController : UIViewController
-@property (nonatomic, strong) IBOutlet GameView *gameView;
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (strong, nonatomic) UIWindow *window;
 
 
 @end

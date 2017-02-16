@@ -10,18 +10,19 @@
 
 @implementation GameView
 @synthesize jumper, bricks;
-@synthesize tilt;
+@synthesize tilt, blockTilt;
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
+    self.layer.contents = (id)[UIImage imageNamed:@"BackgroundImage.jpg"].CGImage;
+
     if (self)
     {
         CGRect bounds = [self bounds];
         
-        jumper = [[Jumper alloc] initWithFrame:CGRectMake(bounds.size.width/2, bounds.size.height - 20, 20, 20)];
-        //[jumper setBackgroundColor:[UIColor redColor]];
-        jumper.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"jumper.png"]];
+        jumper = [[Jumper alloc] initWithFrame:CGRectMake(bounds.size.width/2, bounds.size.height - 20, 50, 50)];
+        jumper.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"yoshiLeft34x34.gif"]];
         [jumper setDx:0];
         [jumper setDy:10];
         [self addSubview:jumper];
@@ -48,10 +49,23 @@
     for (int i = 0; i < 10; ++i)
         {
             Brick *b = [[Brick alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-            [b setBackgroundColor:[UIColor blueColor]];
-            [self addSubview:b];
+            //[b setBackgroundColor:[UIColor blueColor]];
+            b.layer.contents = (id)[UIImage imageNamed:@"platform.png"].CGImage;
             [b setCenter:CGPointMake(rand() % (int)(bounds.size.width * .8), rand() % (int)((bounds.size.height * .8)))];
-            [bricks addObject:b];
+            
+            //need to fix
+            [b setDy:0];
+            
+            
+            for(int j = 0; j < [bricks count]; ++j){
+                CGRect tmp = [bricks[j] frame];
+                CGPoint tmp1 = [b center];
+                if( !( CGRectContainsPoint(tmp, tmp1) ) ){
+                    [bricks addObject:b];[self addSubview:b];
+                }
+            }
+            
+            
         }
 }
 /*
@@ -78,6 +92,10 @@
     if ([jumper dx] < -5)
         [jumper setDx:-5];
     
+    // Change L/R orientation
+    if(tilt <= 0)
+        jumper.layer.contents = (id)[UIImage imageNamed:@"Left34x34.gif"].CGImage;
+    else jumper.layer.contents = (id)[UIImage imageNamed:@"Right34x34.gif"].CGImage;
     // Jumper moves in the direction of gravity
     CGPoint p = [jumper center];
     p.x += [jumper dx];
@@ -107,6 +125,7 @@
     {
         for (Brick *brick in bricks)
         {
+            //CGPoint bl = [brick center];
             CGRect b = [brick frame];
             if (CGRectContainsPoint(b, p))
             {
@@ -114,6 +133,9 @@
                 NSLog(@"Bounce!");
                 [jumper setDy:10];
             }
+            //move bricks
+            //[bl setDy:-10];
+            
         }
     }
     

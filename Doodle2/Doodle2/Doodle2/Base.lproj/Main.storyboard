@@ -39,6 +39,9 @@
                                     <constraint firstItem="Aca-t2-8o2" firstAttribute="top" secondItem="CYP-lk-qZI" secondAttribute="top" constant="8" id="4Ww-Pf-YXs"/>
                                     <constraint firstItem="Aca-t2-8o2" firstAttribute="leading" secondItem="CYP-lk-qZI" secondAttribute="leading" constant="15" id="J5e-rT-8cJ"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="HyR-WW-B7R" appends="YES" id="tL9-HS-lcp"/>
+                                </connections>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LJ4-FD-gfP">
                                 <rect key="frame" x="14" y="617" width="347" height="31"/>
@@ -63,6 +66,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="HyR-WW-B7R"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>

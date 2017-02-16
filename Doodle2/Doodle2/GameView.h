@@ -11,11 +11,13 @@
 #import "Brick.h"
 
 @interface GameView : UIView {
-
+    int score;
 }
 @property (nonatomic, strong) Jumper *jumper;
 @property (nonatomic, strong) NSMutableArray *bricks;
 @property (nonatomic) float tilt;
+@property (nonatomic) float blockTilt;
 -(void)arrange:(CADisplayLink *)sender;
+
 
 @end
