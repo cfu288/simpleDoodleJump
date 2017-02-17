@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "GameView.h"
+#import "Universe.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController{
+}
 @property (nonatomic, strong) IBOutlet GameView *gameView;
-
+@property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
+//-(IBAction)incrementCounter:(id)sender;
 
 
 @end

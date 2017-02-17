@@ -20,6 +20,9 @@
 		83CA89BB1E5658670001D5FB /* Left34x34.gif in Resources */ = {isa = PBXBuildFile; fileRef = 83CA89BA1E5658670001D5FB /* Left34x34.gif */; };
 		83CA89BD1E56586D0001D5FB /* Right34x34.gif in Resources */ = {isa = PBXBuildFile; fileRef = 83CA89BC1E56586D0001D5FB /* Right34x34.gif */; };
 		83CA89C01E565C850001D5FB /* platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 83CA89BF1E565C850001D5FB /* platform.png */; };
+		83CA89C31E5694DE0001D5FB /* Universe.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CA89C21E5694DE0001D5FB /* Universe.m */; };
+		83CA89C61E56A1D40001D5FB /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CA89C51E56A1D30001D5FB /* Enemy.m */; };
+		83CA89C81E56A7600001D5FB /* Flying-Turtle.GIF in Resources */ = {isa = PBXBuildFile; fileRef = 83CA89C71E56A7600001D5FB /* Flying-Turtle.GIF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,11 @@
 		83CA89BA1E5658670001D5FB /* Left34x34.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Left34x34.gif; sourceTree = "<group>"; };
 		83CA89BC1E56586D0001D5FB /* Right34x34.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Right34x34.gif; sourceTree = "<group>"; };
 		83CA89BF1E565C850001D5FB /* platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platform.png; sourceTree = "<group>"; };
+		83CA89C11E5694DE0001D5FB /* Universe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Universe.h; sourceTree = "<group>"; };
+		83CA89C21E5694DE0001D5FB /* Universe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Universe.m; sourceTree = "<group>"; };
+		83CA89C41E56A1D30001D5FB /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
+		83CA89C51E56A1D30001D5FB /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
+		83CA89C71E56A7600001D5FB /* Flying-Turtle.GIF */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Flying-Turtle.GIF"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +87,16 @@
 				747989401E46863A002B62A0 /* AppDelegate.m */,
 				747989421E46863A002B62A0 /* ViewController.h */,
 				747989431E46863A002B62A0 /* ViewController.m */,
+				83CA89C11E5694DE0001D5FB /* Universe.h */,
+				83CA89C21E5694DE0001D5FB /* Universe.m */,
 				747989531E46865F002B62A0 /* GameView.h */,
 				747989541E46865F002B62A0 /* GameView.m */,
 				747989561E477E1A002B62A0 /* Jumper.h */,
 				747989571E477E1A002B62A0 /* Jumper.m */,
 				747989591E477E2C002B62A0 /* Brick.h */,
 				7479895A1E477E2C002B62A0 /* Brick.m */,
+				83CA89C41E56A1D30001D5FB /* Enemy.h */,
+				83CA89C51E56A1D30001D5FB /* Enemy.m */,
 				747989451E46863A002B62A0 /* Main.storyboard */,
 				747989481E46863A002B62A0 /* Assets.xcassets */,
 				7479894A1E46863A002B62A0 /* LaunchScreen.storyboard */,
@@ -107,6 +119,7 @@
 		83CA89BE1E5658A70001D5FB /* CharacterSprites */ = {
 			isa = PBXGroup;
 			children = (
+				83CA89C71E56A7600001D5FB /* Flying-Turtle.GIF */,
 				83CA89BF1E565C850001D5FB /* platform.png */,
 				83CA89BC1E56586D0001D5FB /* Right34x34.gif */,
 				83CA89BA1E5658670001D5FB /* Left34x34.gif */,
@@ -176,6 +189,7 @@
 				7479894C1E46863A002B62A0 /* LaunchScreen.storyboard in Resources */,
 				83CA89BB1E5658670001D5FB /* Left34x34.gif in Resources */,
 				83CA89C01E565C850001D5FB /* platform.png in Resources */,
+				83CA89C81E56A7600001D5FB /* Flying-Turtle.GIF in Resources */,
 				747989491E46863A002B62A0 /* Assets.xcassets in Resources */,
 				83CA89B31E5651D10001D5FB /* BackgroundImage.jpg in Resources */,
 				83CA89BD1E56586D0001D5FB /* Right34x34.gif in Resources */,
@@ -190,8 +204,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83CA89C61E56A1D40001D5FB /* Enemy.m in Sources */,
 				747989441E46863A002B62A0 /* ViewController.m in Sources */,
 				747989411E46863A002B62A0 /* AppDelegate.m in Sources */,
+				83CA89C31E5694DE0001D5FB /* Universe.m in Sources */,
 				747989551E46865F002B62A0 /* GameView.m in Sources */,
 				7479895B1E477E2C002B62A0 /* Brick.m in Sources */,
 				7479893E1E46863A002B62A0 /* main.m in Sources */,

@@ -9,14 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "Jumper.h"
 #import "Brick.h"
+#import "Enemy.h"
+#import "Universe.h"
 
 @interface GameView : UIView {
-    int score;
 }
+
 @property (nonatomic, strong) Jumper *jumper;
 @property (nonatomic, strong) NSMutableArray *bricks;
+@property (nonatomic, strong) NSMutableArray *enemies;
 @property (nonatomic) float tilt;
-@property (nonatomic) float blockTilt;
 -(void)arrange:(CADisplayLink *)sender;
 
 
