@@ -54,16 +54,18 @@
             [b setCenter:CGPointMake(rand() % (int)(bounds.size.width * .8), rand() % (int)((bounds.size.height * .8)))];
             
             //need to fix
-            [b setDy:0];
-            
-            
-            for(int j = 0; j < [bricks count]; ++j){
-                CGRect tmp = [bricks[j] frame];
-                CGPoint tmp1 = [b center];
-                if( !( CGRectContainsPoint(tmp, tmp1) ) ){
-                    [bricks addObject:b];[self addSubview:b];
+            //[b setDy:0];
+            [bricks addObject:b];[self addSubview:b];
+            /*if(i==1){ [bricks addObject:b];[self addSubview:b];}
+            else{
+                for(int j = 0; j < [bricks count]; ++j){
+                    CGRect tmp = [bricks[j] frame];
+                    CGPoint tmp1 = [b center];
+                    if( !( CGRectContainsPoint(tmp, tmp1) ) ){
+                        [bricks addObject:b];[self addSubview:b];
+                    }
                 }
-            }
+            }*/
             
             
         }
@@ -78,7 +80,7 @@
 
 -(void)arrange:(CADisplayLink *)sender
 {
-    CFTimeInterval ts = [sender timestamp];
+    //CFTimeInterval ts = [sender timestamp];
     
     CGRect bounds = [self bounds];
     
@@ -92,14 +94,31 @@
     if ([jumper dx] < -5)
         [jumper setDx:-5];
     
+    // Apply platform deceleration
+    for(Brick *brick in bricks){
+        float decel = [brick dy] + .3;
+        if(decel > 0) [brick setDy:0];
+        else [brick setDy:decel];
+    }
+    
     // Change L/R orientation
     if(tilt <= 0)
         jumper.layer.contents = (id)[UIImage imageNamed:@"Left34x34.gif"].CGImage;
     else jumper.layer.contents = (id)[UIImage imageNamed:@"Right34x34.gif"].CGImage;
+    
     // Jumper moves in the direction of gravity
     CGPoint p = [jumper center];
     p.x += [jumper dx];
     p.y -= [jumper dy];
+    
+    for(Brick *brick in bricks){
+        CGPoint bp = [brick center];
+        bp.y -= [brick dy];
+        if(bp.y > bounds.size.height)
+            bp.y -= bounds.size.height;
+        
+        [brick setCenter:bp];
+    }
     
     // If the jumper has fallen below the bottom of the screen,
     // add a positive velocity to move him
@@ -129,13 +148,32 @@
             CGRect b = [brick frame];
             if (CGRectContainsPoint(b, p))
             {
-                // Yay!  Bounce!
-                NSLog(@"Bounce!");
                 [jumper setDy:10];
+                if(b.origin.y < bounds.size.height*.1){
+                    for(Brick *brick1 in bricks){
+                        [jumper setDy:0];
+                        [brick1 setDy:-18];
+                    }
+                }
+                else if(b.origin.y < bounds.size.height*.2){
+                    for(Brick *brick1 in bricks){
+                        [jumper setDy:1];
+                        [brick1 setDy:-16];
+                    }
+                }
+                else if(b.origin.y < bounds.size.height*.8){
+                    for(Brick *brick1 in bricks){
+                        [jumper setDy:6];
+                        [brick1 setDy:-10];
+                    }
+                }
+                else{
+                    for(Brick *brick1 in bricks){
+                        [jumper setDy:10];
+                        [brick1 setDy:0];
+                    }
+                }
             }
-            //move bricks
-            //[bl setDy:-10];
-            
         }
     }
     
