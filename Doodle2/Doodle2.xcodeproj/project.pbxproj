@@ -16,6 +16,8 @@
 		747989551E46865F002B62A0 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 747989541E46865F002B62A0 /* GameView.m */; };
 		747989581E477E1A002B62A0 /* Jumper.m in Sources */ = {isa = PBXBuildFile; fileRef = 747989571E477E1A002B62A0 /* Jumper.m */; };
 		7479895B1E477E2C002B62A0 /* Brick.m in Sources */ = {isa = PBXBuildFile; fileRef = 7479895A1E477E2C002B62A0 /* Brick.m */; };
+		83A92A521E58DEFC003C2A0F /* wall1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83A92A511E58DEFC003C2A0F /* wall1.jpg */; };
+		83A92A551E58E0E5003C2A0F /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A92A541E58E0E5003C2A0F /* StartView.m */; };
 		83CA89B31E5651D10001D5FB /* BackgroundImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83CA89B21E5651D10001D5FB /* BackgroundImage.jpg */; };
 		83CA89BB1E5658670001D5FB /* Left34x34.gif in Resources */ = {isa = PBXBuildFile; fileRef = 83CA89BA1E5658670001D5FB /* Left34x34.gif */; };
 		83CA89BD1E56586D0001D5FB /* Right34x34.gif in Resources */ = {isa = PBXBuildFile; fileRef = 83CA89BC1E56586D0001D5FB /* Right34x34.gif */; };
@@ -42,6 +44,9 @@
 		747989571E477E1A002B62A0 /* Jumper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Jumper.m; sourceTree = "<group>"; };
 		747989591E477E2C002B62A0 /* Brick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brick.h; sourceTree = "<group>"; };
 		7479895A1E477E2C002B62A0 /* Brick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brick.m; sourceTree = "<group>"; };
+		83A92A511E58DEFC003C2A0F /* wall1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wall1.jpg; sourceTree = "<group>"; };
+		83A92A531E58E0E5003C2A0F /* StartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartView.h; sourceTree = "<group>"; };
+		83A92A541E58E0E5003C2A0F /* StartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartView.m; sourceTree = "<group>"; };
 		83CA89B21E5651D10001D5FB /* BackgroundImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BackgroundImage.jpg; sourceTree = "<group>"; };
 		83CA89BA1E5658670001D5FB /* Left34x34.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Left34x34.gif; sourceTree = "<group>"; };
 		83CA89BC1E56586D0001D5FB /* Right34x34.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Right34x34.gif; sourceTree = "<group>"; };
@@ -91,6 +96,8 @@
 				83CA89C21E5694DE0001D5FB /* Universe.m */,
 				747989531E46865F002B62A0 /* GameView.h */,
 				747989541E46865F002B62A0 /* GameView.m */,
+				83A92A531E58E0E5003C2A0F /* StartView.h */,
+				83A92A541E58E0E5003C2A0F /* StartView.m */,
 				747989561E477E1A002B62A0 /* Jumper.h */,
 				747989571E477E1A002B62A0 /* Jumper.m */,
 				747989591E477E2C002B62A0 /* Brick.h */,
@@ -110,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				83CA89B21E5651D10001D5FB /* BackgroundImage.jpg */,
+				83A92A511E58DEFC003C2A0F /* wall1.jpg */,
 				83CA89BE1E5658A70001D5FB /* CharacterSprites */,
 				7479893D1E46863A002B62A0 /* main.m */,
 			);
@@ -188,6 +196,7 @@
 			files = (
 				7479894C1E46863A002B62A0 /* LaunchScreen.storyboard in Resources */,
 				83CA89BB1E5658670001D5FB /* Left34x34.gif in Resources */,
+				83A92A521E58DEFC003C2A0F /* wall1.jpg in Resources */,
 				83CA89C01E565C850001D5FB /* platform.png in Resources */,
 				83CA89C81E56A7600001D5FB /* Flying-Turtle.GIF in Resources */,
 				747989491E46863A002B62A0 /* Assets.xcassets in Resources */,
@@ -208,6 +217,7 @@
 				747989441E46863A002B62A0 /* ViewController.m in Sources */,
 				747989411E46863A002B62A0 /* AppDelegate.m in Sources */,
 				83CA89C31E5694DE0001D5FB /* Universe.m in Sources */,
+				83A92A551E58E0E5003C2A0F /* StartView.m in Sources */,
 				747989551E46865F002B62A0 /* GameView.m in Sources */,
 				7479895B1E477E2C002B62A0 /* Brick.m in Sources */,
 				7479893E1E46863A002B62A0 /* main.m in Sources */,

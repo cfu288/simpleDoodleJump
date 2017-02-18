@@ -15,6 +15,9 @@
 
 +(Universe *)sharedInstance;
 @property (nonatomic) int score;
+@property (nonatomic) int highscore;
+@property (nonatomic) int lives;
+
 
 -(void)saveState;
 -(void)loadState;

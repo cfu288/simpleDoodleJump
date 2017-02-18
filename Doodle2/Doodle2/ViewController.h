@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "GameView.h"
+#import "StartView.h"
 #import "Universe.h"
 
 @interface ViewController : UIViewController{
+    CADisplayLink *dl;
 }
 @property (nonatomic, strong) IBOutlet GameView *gameView;
-@property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
-//-(IBAction)incrementCounter:(id)sender;
-
+@property (nonatomic, strong) IBOutlet StartView *sv;
 
 @end
 

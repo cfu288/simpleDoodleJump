@@ -9,7 +9,8 @@
 #import "Universe.h"
 
 @implementation Universe
-@synthesize score;
+@synthesize score, highscore;
+@synthesize lives;
 
 static Universe *singleton = nil;
 
@@ -31,7 +32,7 @@ static Universe *singleton = nil;
     if (singleton)
         return singleton;
     
-    return [Universe init];
+    return [[Universe alloc]init];
 }
 
 -(void)saveState
@@ -43,11 +44,11 @@ static Universe *singleton = nil;
     
     NSMutableData *data = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-    [archiver encodeInt:score forKey:@"score"];
+    [archiver encodeInt:highscore forKey:@"highscore"];
     [archiver finishEncoding];
     [data writeToURL:url atomically:YES];
     
-    NSLog(@"Save the value %d for the score", score);
+    NSLog(@"Save the value %d for the high score", highscore);
 }
 
 -(void)loadState
@@ -64,9 +65,9 @@ static Universe *singleton = nil;
     NSKeyedUnarchiver *unarchiver;
     
     unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-    score = [unarchiver decodeIntForKey:@"score"];
+    highscore = [unarchiver decodeIntForKey:@"highscore"];
     
-    NSLog(@"Loaded the value %d for the score", score);
+    NSLog(@"Loaded the value %d for the score", highscore);
 }
 
 @end

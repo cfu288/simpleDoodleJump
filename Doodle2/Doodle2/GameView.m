@@ -10,9 +10,13 @@
 
 @implementation GameView
 @synthesize jumper, bricks, enemies;
-@synthesize tilt;
+@synthesize tilt, scoreLabel;
 
 -(void)resetScore{
+    //[[Universe sharedInstance] setScore:0];
+}
+
+-(void)resetLives{
     //[[Universe sharedInstance] setScore:0];
 }
 
@@ -23,17 +27,21 @@
 
     if (self)
     {
-        CGRect bounds = [self bounds];
-        
-        jumper = [[Jumper alloc] initWithFrame:CGRectMake(bounds.size.width/2.1, bounds.size.height - 20, 50, 50)];
-        jumper.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"yoshiLeft34x34.gif"]];
-        [jumper setDx:0];
-        [jumper setDy:10];
-        [self addSubview:jumper];
-        [self makeBricks:nil];
-        [self makeEnemies];
+        [self newGame:nil];
     }
     return self;
+}
+
+-(IBAction)newGame:(id)sender{
+    CGRect bounds = [self bounds];
+    if(jumper) [jumper removeFromSuperview];
+    jumper = [[Jumper alloc] initWithFrame:CGRectMake(bounds.size.width/2.1, bounds.size.height - 20, 50, 50)];
+    jumper.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"yoshiLeft34x34.gif"]];
+    [jumper setDx:0];
+    [jumper setDy:10];
+    [self addSubview:jumper];
+    [self makeBricks:nil];
+    [self makeEnemies];
 }
 
 -(void)makeEnemies{
@@ -53,9 +61,6 @@
     if(rand() % 100 < 99){ // come back to later
         Enemy *e = [[Enemy alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         e.direction = -1;
-        //[e setBackgroundColor:[UIColor blueColor]];
-        //e.layer.contents = (id)[UIImage animatedImageNamed:@"Flying-Turtle.GIF" duration:1.0f];
-        //[e setBackgroundColor:[UIColor colorWithPatternImage:[UIImage animatedImageNamed:@"Flying-Turtle.GIF" duration:1.0]]];
         e.layer.contents = (id)[UIImage imageNamed:@"Flying-Turtle.GIF"].CGImage;
         //[e startAnimating];
         [e setCenter:CGPointMake(rand() % (int)(bounds.size.width * .8), rand() % (int)((bounds.size.height * .6)))];
@@ -133,11 +138,11 @@
         if ([en dx] > 4 || [en dx] < 4 ){
             [en setDx:(4*dir)];
         }
-        if(rand()%100<2){
+        /*if(rand()%100<2){
             if(dir == -1)[en setDirection:1];
             else [en setDirection:-1];
             //printf("test ");
-        }
+        }*/
     }
     
     // Change L/R orientation
@@ -159,9 +164,9 @@
         if(bp.y > bounds.size.height){
             bp.y -= bounds.size.height;
             bp.x = rand() % (int)(bounds.size.width * .8);
-
-            //score++;
-            //[[Universe sharedInstance] setScore:[Universe sharedInstance].score + 1];
+            [[Universe sharedInstance] setScore:[Universe sharedInstance].score + 1];
+            [scoreLabel setText:[NSString stringWithFormat:@"Score: %d", [[Universe sharedInstance] score]]];
+            
         }
         [brick setCenter:bp];
     }
@@ -201,7 +206,7 @@
     for(Enemy *en in enemies){
         CGRect e = [en frame];
         if(CGRectContainsPoint(e, p)){
-            printf("LOST A LIFE");
+           //NSLog(@"LOST A LIFE");
         }
     }
     

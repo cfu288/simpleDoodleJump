@@ -13,34 +13,47 @@
         <!--View Controller-->
         <scene sceneID="rCF-bi-wdT">
             <objects>
-                <viewController id="PFy-ro-om5" sceneMemberID="viewController">
+                <viewController id="PFy-ro-om5" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Qv-jG-llY"/>
                         <viewControllerLayoutGuide type="bottom" id="5i1-wm-iIi"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="v56-jl-RpB">
+                    <view key="view" contentMode="scaleToFill" id="v56-jl-RpB" customClass="View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gw6-Rf-ydq">
-                                <rect key="frame" x="0.0" y="12" width="375" height="647"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gw6-Rf-ydq" customClass="StartView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hr6-vE-Syw">
-                                        <rect key="frame" x="124" y="143" width="126" height="30"/>
+                                        <rect key="frame" x="124" y="137" width="126" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" action="showViewController:sender:" id="NmB-On-RVm"/>
+                                            <segue destination="BYZ-38-t0r" kind="showDetail" id="Vpr-Sw-4rd"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="High Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMW-G1-Ris">
+                                        <rect key="frame" x="114" y="203" width="146" height="68"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="HighscoreLabel" destination="CMW-G1-Ris" id="BgD-sR-r9p"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="sv" destination="gw6-Rf-ydq" id="Vcm-Pe-Flk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zr-xq-mVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,17 +77,31 @@
                                     <action selector="speedChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="0F8-80-m30"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aca-t2-8o2">
-                                <rect key="frame" x="164" y="0.0" width="47" height="30"/>
-                                <state key="normal" title="Bricks!"/>
-                                <connections>
-                                    <action selector="makeBricks:" destination="CYP-lk-qZI" eventType="touchUpInside" id="Pup-7A-NVf"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYP-lk-qZI" customClass="GameView">
                                 <rect key="frame" x="0.0" y="28" width="375" height="581"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eH2-fa-i0V">
+                                        <rect key="frame" x="252" y="45" width="104" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPJ-qs-z3l">
+                                        <rect key="frame" x="299" y="0.0" width="50" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="resetGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ryM-gn-A4c"/>
+                                            <segue destination="RWk-73-eNv" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="lZP-Na-tm3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="scoreLabel" destination="eH2-fa-i0V" id="mgD-3b-P4l"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -83,8 +110,6 @@
                             <constraint firstItem="CYP-lk-qZI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="A7O-aT-bz7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LJ4-FD-gfP" secondAttribute="trailing" id="JP3-KI-OiT"/>
                             <constraint firstItem="CYP-lk-qZI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="pVo-gj-PHn"/>
-                            <constraint firstItem="Aca-t2-8o2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="r6I-WE-MvJ"/>
-                            <constraint firstItem="Aca-t2-8o2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="164" id="shp-rd-07F"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LJ4-FD-gfP" secondAttribute="bottom" constant="20" id="u56-Vc-Iok"/>
                             <constraint firstItem="LJ4-FD-gfP" firstAttribute="top" secondItem="CYP-lk-qZI" secondAttribute="bottom" constant="8" id="xo3-gJ-w9r"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CYP-lk-qZI" secondAttribute="trailing" constant="-16" id="zVO-ab-odj"/>
@@ -95,6 +120,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="RWk-73-eNv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>

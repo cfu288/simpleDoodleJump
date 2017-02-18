@@ -10,22 +10,35 @@
 
 
 @interface ViewController ()
-@property (nonatomic, strong) CADisplayLink *displayLink;
-
 @end
 
 @implementation ViewController
-@synthesize scoreLabel;
-
+@synthesize sv;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _displayLink = [CADisplayLink displayLinkWithTarget:_gameView selector:@selector(arrange:)];
-    [_displayLink setPreferredFramesPerSecond:60];
-    [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-   // [scoreLabel setText:[NSString stringWithFormat:@"Score: %d", [[Universe sharedInstance] score]]];
+    dl = [CADisplayLink displayLinkWithTarget:_gameView selector:@selector(arrange:)];
+    [dl setPreferredFramesPerSecond:60];
+    [dl addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
 
+}
+
+-(void)newDisplay{
+    [dl invalidate];
+    //[dl removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    dl = [CADisplayLink displayLinkWithTarget:_gameView selector:@selector(arrange:)];
+    [dl setPreferredFramesPerSecond:60];
+    [dl addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+}
+
+-(IBAction)resetGame:(id)sender{
+    [dl invalidate];
+    if([Universe sharedInstance].highscore < [Universe sharedInstance].score){
+        [[Universe sharedInstance]setHighscore:[Universe sharedInstance].score];
+    }
+    [[Universe sharedInstance] setScore:0];
+    [sv setHighscoreLabel];
 }
 
 /*
@@ -51,12 +64,12 @@
 
 -(void)performSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    NSLog(@"Performing segue with ID %@, so we can set things up.", identifier);
+    printf("Performing segue with ID, so we can set things up.");
 }
 
 -(IBAction)unwindForSegue:(UIStoryboardSegue *)unwindSegue towardsViewController:(UIViewController *)subsequentVC
 {
-    NSLog(@"Backing out of the other view controller.");
+    printf("Backing out of the other view controller.");
 }
 
 

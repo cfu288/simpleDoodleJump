@@ -19,7 +19,8 @@
 @property (nonatomic, strong) NSMutableArray *bricks;
 @property (nonatomic, strong) NSMutableArray *enemies;
 @property (nonatomic) float tilt;
+@property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
 -(void)arrange:(CADisplayLink *)sender;
-
+-(IBAction)newGame:(id)sender;
 
 @end
