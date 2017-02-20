@@ -14,6 +14,7 @@
 
 @interface GameView : UIView {
     bool lost:YES;
+    double time;
 }
 
 @property (nonatomic, strong) Jumper *jumper;

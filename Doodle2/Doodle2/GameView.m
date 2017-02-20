@@ -43,6 +43,7 @@
     [self makeBricks:nil];
     [self makeEnemies];
     [[Universe sharedInstance] setLives:10];
+    time = 0.0;
 }
 
 -(void)makeEnemies{
@@ -109,7 +110,7 @@
 
 -(void)arrange:(CADisplayLink *)sender
 {
-    //CFTimeInterval ts = [sender timestamp];
+    CFTimeInterval ts = [sender timestamp];
     
     CGRect bounds = [self bounds];
     
@@ -169,9 +170,6 @@
                 bp.y -= bounds.size.height;
                 bp.x = rand() % (int)(bounds.size.width * .8);
                 [[Universe sharedInstance] setScore:[[Universe sharedInstance] score] + 1];
-                NSLog(@"%i",[[Universe sharedInstance] score] );
-                [scoreLabel setText:[NSString stringWithFormat:@"Score: %d", [[Universe sharedInstance] score]]];
-                
             }
             [brick setCenter:bp];
         }
@@ -217,12 +215,15 @@
         for(Enemy *en in enemies){
             CGRect e = [en frame];
             if(CGRectContainsPoint(e, p)){
-               //NSLog(@"LOST A LIFE");
-                [jumper setDy: 10];
+                [jumper setDy: 5];
+                if(tilt <=0) [jumper setDx:5];
+                else [jumper setDx:-5];
                 if([[Universe sharedInstance] lives] - 1 == 0)
                 lost = YES;
                 else{
-                    [[Universe sharedInstance] setLives:[[Universe sharedInstance] lives]-1];
+                    if(ts - time > 1){ [[Universe sharedInstance] setLives:[[Universe sharedInstance] lives]-1];
+                        time = ts;
+                    }
                 }
             }
         }
