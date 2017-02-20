@@ -10,16 +10,19 @@
 #import "Jumper.h"
 #import "Brick.h"
 #import "Enemy.h"
+#import "Spring.h"
 #import "Universe.h"
 
 @interface GameView : UIView {
     bool lost:YES;
     double time;
+    double timeevent;
 }
 
 @property (nonatomic, strong) Jumper *jumper;
 @property (nonatomic, strong) NSMutableArray *bricks;
 @property (nonatomic, strong) NSMutableArray *enemies;
+@property (nonatomic, strong) NSMutableArray *springs;
 @property (nonatomic) float tilt;
 @property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, strong) IBOutlet UILabel *livesLabel;

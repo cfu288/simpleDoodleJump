@@ -18,6 +18,8 @@
 		7479895B1E477E2C002B62A0 /* Brick.m in Sources */ = {isa = PBXBuildFile; fileRef = 7479895A1E477E2C002B62A0 /* Brick.m */; };
 		83A92A521E58DEFC003C2A0F /* wall1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83A92A511E58DEFC003C2A0F /* wall1.jpg */; };
 		83A92A551E58E0E5003C2A0F /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A92A541E58E0E5003C2A0F /* StartView.m */; };
+		83A92A571E5A97C2003C2A0F /* spring1.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A92A561E5A97C2003C2A0F /* spring1.png */; };
+		83A92A5A1E5A9852003C2A0F /* Spring.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A92A591E5A9852003C2A0F /* Spring.m */; };
 		83CA89B31E5651D10001D5FB /* BackgroundImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83CA89B21E5651D10001D5FB /* BackgroundImage.jpg */; };
 		83CA89BB1E5658670001D5FB /* Left34x34.gif in Resources */ = {isa = PBXBuildFile; fileRef = 83CA89BA1E5658670001D5FB /* Left34x34.gif */; };
 		83CA89BD1E56586D0001D5FB /* Right34x34.gif in Resources */ = {isa = PBXBuildFile; fileRef = 83CA89BC1E56586D0001D5FB /* Right34x34.gif */; };
@@ -47,6 +49,9 @@
 		83A92A511E58DEFC003C2A0F /* wall1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wall1.jpg; sourceTree = "<group>"; };
 		83A92A531E58E0E5003C2A0F /* StartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartView.h; sourceTree = "<group>"; };
 		83A92A541E58E0E5003C2A0F /* StartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartView.m; sourceTree = "<group>"; };
+		83A92A561E5A97C2003C2A0F /* spring1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spring1.png; sourceTree = "<group>"; };
+		83A92A581E5A9852003C2A0F /* Spring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spring.h; sourceTree = "<group>"; };
+		83A92A591E5A9852003C2A0F /* Spring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spring.m; sourceTree = "<group>"; };
 		83CA89B21E5651D10001D5FB /* BackgroundImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BackgroundImage.jpg; sourceTree = "<group>"; };
 		83CA89BA1E5658670001D5FB /* Left34x34.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Left34x34.gif; sourceTree = "<group>"; };
 		83CA89BC1E56586D0001D5FB /* Right34x34.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Right34x34.gif; sourceTree = "<group>"; };
@@ -102,6 +107,8 @@
 				747989571E477E1A002B62A0 /* Jumper.m */,
 				747989591E477E2C002B62A0 /* Brick.h */,
 				7479895A1E477E2C002B62A0 /* Brick.m */,
+				83A92A581E5A9852003C2A0F /* Spring.h */,
+				83A92A591E5A9852003C2A0F /* Spring.m */,
 				83CA89C41E56A1D30001D5FB /* Enemy.h */,
 				83CA89C51E56A1D30001D5FB /* Enemy.m */,
 				747989451E46863A002B62A0 /* Main.storyboard */,
@@ -128,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				83CA89C71E56A7600001D5FB /* Flying-Turtle.GIF */,
+				83A92A561E5A97C2003C2A0F /* spring1.png */,
 				83CA89BF1E565C850001D5FB /* platform.png */,
 				83CA89BC1E56586D0001D5FB /* Right34x34.gif */,
 				83CA89BA1E5658670001D5FB /* Left34x34.gif */,
@@ -196,6 +204,7 @@
 			files = (
 				7479894C1E46863A002B62A0 /* LaunchScreen.storyboard in Resources */,
 				83CA89BB1E5658670001D5FB /* Left34x34.gif in Resources */,
+				83A92A571E5A97C2003C2A0F /* spring1.png in Resources */,
 				83A92A521E58DEFC003C2A0F /* wall1.jpg in Resources */,
 				83CA89C01E565C850001D5FB /* platform.png in Resources */,
 				83CA89C81E56A7600001D5FB /* Flying-Turtle.GIF in Resources */,
@@ -213,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83A92A5A1E5A9852003C2A0F /* Spring.m in Sources */,
 				83CA89C61E56A1D40001D5FB /* Enemy.m in Sources */,
 				747989441E46863A002B62A0 /* ViewController.m in Sources */,
 				747989411E46863A002B62A0 /* AppDelegate.m in Sources */,

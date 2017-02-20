@@ -9,6 +9,7 @@ I've made several improvements to the base framework:
 - Start screen
 - Improved sprites - No more colored boxes!
 - Enemies with bounce interactions
+- Springs!
 - Improved spacing of platforms 
 	- Platforms should be better spaced out
 - Improved physics
