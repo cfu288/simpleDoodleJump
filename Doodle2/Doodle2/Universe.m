@@ -11,6 +11,7 @@
 @implementation Universe
 @synthesize score, highscore;
 @synthesize lives;
+@synthesize lost;
 
 static Universe *singleton = nil;
 

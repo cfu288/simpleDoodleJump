@@ -16,6 +16,7 @@
 }
 @property (nonatomic, strong) IBOutlet GameView *gameView;
 @property (nonatomic, strong) IBOutlet StartView *sv;
+@property (nonatomic, strong) IBOutlet UIButton *back;
 
 @end
 

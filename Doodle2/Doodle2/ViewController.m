@@ -14,6 +14,7 @@
 
 @implementation ViewController
 @synthesize sv;
+@synthesize back;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,29 +26,21 @@
 }
 
 -(void)newDisplay{
+    [sv setHighscoreLab];
     [dl invalidate];
-    //[dl removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     dl = [CADisplayLink displayLinkWithTarget:_gameView selector:@selector(arrange:)];
     [dl setPreferredFramesPerSecond:60];
     [dl addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
 -(IBAction)resetGame:(id)sender{
+    [sv setHighscoreLab];
     [dl invalidate];
     if([Universe sharedInstance].highscore < [Universe sharedInstance].score){
         [[Universe sharedInstance]setHighscore:[Universe sharedInstance].score];
     }
     [[Universe sharedInstance] setScore:0];
-    [sv setHighscoreLabel];
 }
-
-/*
--(IBAction)incrementCounter:(id)sender
-{
-    int v = [[Universe sharedInstance] score] + 1;
-    [[Universe sharedInstance] setScore:v];
-    [scoreLabel setText:[NSString stringWithFormat:@"Score: %d", [[Universe sharedInstance] score]]];
-}*/
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -70,6 +63,7 @@
 -(IBAction)unwindForSegue:(UIStoryboardSegue *)unwindSegue towardsViewController:(UIViewController *)subsequentVC
 {
     printf("Backing out of the other view controller.");
+    [sv setHighscoreLab];
 }
 
 

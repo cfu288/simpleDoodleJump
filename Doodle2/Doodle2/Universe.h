@@ -17,7 +17,7 @@
 @property (nonatomic) int score;
 @property (nonatomic) int highscore;
 @property (nonatomic) int lives;
-
+@property (nonatomic) bool lost;
 
 -(void)saveState;
 -(void)loadState;

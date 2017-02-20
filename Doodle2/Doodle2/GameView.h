@@ -13,6 +13,7 @@
 #import "Universe.h"
 
 @interface GameView : UIView {
+    bool lost:YES;
 }
 
 @property (nonatomic, strong) Jumper *jumper;
@@ -21,6 +22,5 @@
 @property (nonatomic) float tilt;
 @property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
 -(void)arrange:(CADisplayLink *)sender;
--(IBAction)newGame:(id)sender;
 
 @end

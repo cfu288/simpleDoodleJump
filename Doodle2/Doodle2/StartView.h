@@ -11,6 +11,6 @@
 @interface StartView : UIView{}
 @property (atomic,strong) IBOutlet UILabel *HighscoreLabel;
 -(id)initWithCoder:(NSCoder *)aDecoder;
-- (void)setHighscoreLabel;
+-(void)setHighscoreLab;
 
 @end

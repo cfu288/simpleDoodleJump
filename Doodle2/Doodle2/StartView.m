@@ -12,13 +12,12 @@
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
+    [_HighscoreLabel setText:[NSString stringWithFormat:@"High Score: %d", [[Universe sharedInstance] highscore]]];
     self.layer.contents = (id)[UIImage imageNamed:@"BackgroundImage.jpg"].CGImage;
-    [self setHighscoreLabel];
     return self;
 }
-
-- (void)setHighscoreLabel
-{
-    [self.HighscoreLabel setText:[NSString stringWithFormat:@"High Score: %d", [[Universe sharedInstance] highscore]]];
+-(void)setHighscoreLab{
+    [_HighscoreLabel setText:[NSString stringWithFormat:@"High Score: %d", [[Universe sharedInstance] highscore]]];
+    NSLog(@"High Score: %d", [[Universe sharedInstance] highscore]);
 }
 @end
