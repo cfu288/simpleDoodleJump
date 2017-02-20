@@ -10,7 +10,7 @@
 
 @implementation GameView
 @synthesize jumper, bricks, enemies;
-@synthesize tilt, scoreLabel;
+@synthesize tilt, scoreLabel, livesLabel;
 
 -(void)resetScore{
     //[[Universe sharedInstance] setScore:0];
@@ -42,6 +42,7 @@
     [self addSubview:jumper];
     [self makeBricks:nil];
     [self makeEnemies];
+    [[Universe sharedInstance] setLives:10];
 }
 
 -(void)makeEnemies{
@@ -140,14 +141,12 @@
             else [en setDy:decel];
             [en setDx:[en dx] *1.01];
             int dir = en.direction;
-            if ([en dx] > 4 || [en dx] < 4 ){
-                [en setDx:(4*dir)];
+            if ([en dx] > 3 || [en dx] < 3 ){
+                [en setDx:(3*dir)];
             }
-            /*if(rand()%100<2){
-                if(dir == -1)[en setDirection:1];
-                else [en setDirection:-1];
-                //printf("test ");
-            }*/
+            if(rand()%100<2){
+                [en toggleDir];
+            }
         }
         
         // Change L/R orientation
@@ -184,6 +183,7 @@
             if(bp.y > bounds.size.height){
                 bp.y -= bounds.size.height;
                 bp.x = rand() % (int)(bounds.size.width * .8);
+                [en toggleDir];
             }
             if (bp.x < 0)
                 bp.x += bounds.size.width;
@@ -196,7 +196,11 @@
         if (p.y > bounds.size.height)
         {
             [jumper setDy: 10];
-            lost = YES;
+            if([[Universe sharedInstance] lives] - 1 == 0)
+                lost = YES;
+            else{
+                [[Universe sharedInstance] setLives:[[Universe sharedInstance] lives]-1];
+            }
             p.y = bounds.size.height;
         }
         
@@ -214,7 +218,12 @@
             CGRect e = [en frame];
             if(CGRectContainsPoint(e, p)){
                //NSLog(@"LOST A LIFE");
+                [jumper setDy: 10];
+                if([[Universe sharedInstance] lives] - 1 == 0)
                 lost = YES;
+                else{
+                    [[Universe sharedInstance] setLives:[[Universe sharedInstance] lives]-1];
+                }
             }
         }
         
@@ -260,6 +269,8 @@
                 }
             }
         }
+        [scoreLabel setText:[NSString stringWithFormat:@"Score: %d", [[Universe sharedInstance] score]]];
+        [livesLabel setText:[NSString stringWithFormat:@"Lives: %d", [[Universe sharedInstance] lives]]];
         [jumper setCenter:p];
         // NSLog(@"Timestamp %f", ts);
     }

@@ -11,4 +11,5 @@
 @interface Enemy : UIImageView
 @property (nonatomic) float dx, dy;  // Velocity
 @property (nonatomic) int direction;
+-(void)toggleDir;
 @end
