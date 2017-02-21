@@ -75,8 +75,8 @@
 
 -(void)makeSprings{
     CGRect bounds = [self bounds];
-    float width = 30;
-    float height = 30;
+    float width = bounds.size.width * .22;
+    float height = 25;
     
     if (springs)
     {
@@ -89,7 +89,7 @@
     springs = [[NSMutableArray alloc] init];
     if(rand() % 100 < 25){ // come back to later
         Spring *s = [[Spring alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-        s.layer.contents = (id)[UIImage imageNamed:@"spring1.png"].CGImage;
+        s.layer.contents = (id)[UIImage imageNamed:@"springPlat.png"].CGImage;
         [s setCenter:CGPointMake(rand() % (int)(bounds.size.width * .8), 0)];
         [springs addObject:s];
         [self addSubview:s];
