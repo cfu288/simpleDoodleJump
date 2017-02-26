@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doodle2/GameView.m"
-            timestampString = "509782093.479487"
+            timestampString = "509786477.157971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "-arrange:"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doodle2/GameView.m"
-            timestampString = "509774759.699455"
+            timestampString = "509786105.791832"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "-newGame:"
             landmarkType = "7">
          </BreakpointContent>

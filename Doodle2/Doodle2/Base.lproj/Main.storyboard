@@ -154,19 +154,31 @@
                                             <segue destination="RWk-73-eNv" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="kkF-Bz-Tog"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsh-oS-Vrr">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YOU LOST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsh-oS-Vrr">
                                         <rect key="frame" x="107" y="235" width="161" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrX-Oi-1TO">
+                                        <rect key="frame" x="150" y="282" width="75" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="newGame:" destination="CYP-lk-qZI" eventType="touchUpInside" id="mBk-3B-osh"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="livesLabel" destination="AEm-bP-YHc" id="PZ9-ZB-Dut"/>
                                     <outlet property="lostLabel" destination="qsh-oS-Vrr" id="fTh-WT-4SW"/>
+                                    <outlet property="resetButton" destination="SrX-Oi-1TO" id="eVh-Rd-h4d"/>
                                     <outlet property="scoreLabel" destination="eH2-fa-i0V" id="mgD-3b-P4l"/>
                                 </connections>
                             </view>

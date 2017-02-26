@@ -36,6 +36,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, strong) IBOutlet UILabel *livesLabel;
 @property (nonatomic, strong) IBOutlet UILabel *lostLabel;
+@property (nonatomic, strong) IBOutlet UIButton *resetButton;
 -(void)arrange:(CADisplayLink *)sender;
 
 @end

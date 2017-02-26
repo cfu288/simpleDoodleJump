@@ -11,15 +11,8 @@
 
 @implementation GameView
 @synthesize jumper, bricks, enemies, springs;
-@synthesize tilt, scoreLabel, livesLabel, lostLabel;
+@synthesize tilt, scoreLabel, livesLabel, lostLabel, resetButton;
 
--(void)resetScore{
-    //[[Universe sharedInstance] setScore:0];
-}
-
--(void)resetLives{
-    //[[Universe sharedInstance] setScore:0];
-}
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -34,6 +27,7 @@
 }
 
 -(IBAction)newGame:(id)sender{
+    lost = NO;
     CGRect bounds = [self bounds];
     if(jumper) [jumper removeFromSuperview];
     jumper = [[Jumper alloc] initWithFrame:CGRectMake(bounds.size.width/2.1, bounds.size.height - 20, 50, 50)];
@@ -44,7 +38,8 @@
     [self makeBricks:nil];
     [self makeEnemies];
     [self makeSprings];
-    [[Universe sharedInstance] setLives:10];
+    [[Universe sharedInstance] setLives:5];
+    [[Universe sharedInstance] setScore:0];
     time = 0.0;
     timeevent = 0.0;
     soundPath = [[NSBundle mainBundle] pathForResource:@"jump" ofType:@"wav"];
@@ -82,7 +77,6 @@
     CGRect bounds = [self bounds];
     float width = bounds.size.width * .22;
     float height = 25;
-    
     if (springs)
     {
         for (Spring *s in springs)
@@ -164,10 +158,12 @@
     
     // Apply gravity to the acceleration of the jumper
     [jumper setDy:[jumper dy] - .3];
-    
+    resetButton.hidden = YES;
+    lostLabel.hidden = YES;
     if(lost == YES){
+        resetButton.hidden = NO;
+        lostLabel.hidden = NO;
         [scoreLabel setText:[NSString stringWithFormat:@"YOU LOST"]];
-        [lostLabel setText:[NSString stringWithFormat:@"YOU LOST"]];
     }
     else{
     
