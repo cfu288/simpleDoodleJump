@@ -10,9 +10,13 @@
 #import "GameView.h"
 #import "StartView.h"
 #import "Universe.h"
+#import <AudioToolbox/AudioToolbox.h>
+
 
 @interface ViewController : UIViewController{
     CADisplayLink *dl;
+    NSString *soundPath;
+    SystemSoundID soundID;
 }
 @property (nonatomic, strong) IBOutlet GameView *gameView;
 @property (nonatomic, strong) IBOutlet StartView *sv;

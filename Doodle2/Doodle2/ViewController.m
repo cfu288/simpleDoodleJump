@@ -47,6 +47,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)playStartSound:(id)sender{
+    soundPath = [[NSBundle mainBundle] pathForResource:@"coin" ofType:@"wav"];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:soundPath], &soundID);
+     AudioServicesPlaySystemSound(soundID);
+}
+
 -(IBAction)speedChange:(id)sender
 {
     UISlider *s = (UISlider *)sender;

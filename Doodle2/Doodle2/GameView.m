@@ -138,7 +138,7 @@
     if(timeevent == 0) timeevent = ts;
     //printf("time: %f\n",timeevent-ts);
     if(timeevent-ts < -3){
-        printf("PRNT");
+        //printf("PRNT");
         if(rand() % 100 < 50){
             if(springs == nil | [springs count] == 0)[self makeSprings];
         }
@@ -157,7 +157,7 @@
     CGRect bounds = [self bounds];
     
     // Apply gravity to the acceleration of the jumper
-    [jumper setDy:[jumper dy] - .3];
+    [jumper setDy:[jumper dy] - .35];
     resetButton.hidden = YES;
     lostLabel.hidden = YES;
     if(lost == YES){
@@ -218,7 +218,7 @@
             CGPoint bp = [brick center];
             bp.y -= [brick dy];
             if(bp.y > bounds.size.height){
-                bp.y -= bounds.size.height;
+                bp.y -= bounds.size.height + 10;
                 bp.x = rand() % (int)(bounds.size.width * .8);
                 [[Universe sharedInstance] setScore:[[Universe sharedInstance] score] + 1];
                 if([[Universe sharedInstance] score] > [[Universe sharedInstance] highscore]){
@@ -233,16 +233,6 @@
             bp.y -= [en dy];
             bp.x += [en dx];
             if(bp.y > bounds.size.height){
-                //[en removeFromSuperview];
-                //[en delete:nil];
-                //if(ts - time > 3){
-                //    printf("TS:%f,TE:%f",ts,time);
-                //    [en setDy:+100];
-                 //   time = ts;
-                //}
-                //bp.y -= bounds.size.height;
-                //bp.x = rand() % (int)(bounds.size.width * .8);
-                //[en toggleDir];
                 if(bp.y > bounds.size.height){
                     if (enemies)
                     {

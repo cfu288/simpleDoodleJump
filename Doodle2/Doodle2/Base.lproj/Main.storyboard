@@ -36,6 +36,7 @@
                                             <color key="titleShadowColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="playStartSound:" destination="PFy-ro-om5" eventType="touchUpInside" id="M77-LW-QRa"/>
                                             <segue destination="BYZ-38-t0r" kind="showDetail" id="Vpr-Sw-4rd"/>
                                         </connections>
                                     </button>
