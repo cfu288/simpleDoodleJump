@@ -8,9 +8,10 @@
 
 #import "GameView.h"
 
+
 @implementation GameView
 @synthesize jumper, bricks, enemies, springs;
-@synthesize tilt, scoreLabel, livesLabel;
+@synthesize tilt, scoreLabel, livesLabel, lostLabel;
 
 -(void)resetScore{
     //[[Universe sharedInstance] setScore:0];
@@ -46,6 +47,12 @@
     [[Universe sharedInstance] setLives:10];
     time = 0.0;
     timeevent = 0.0;
+    soundPath = [[NSBundle mainBundle] pathForResource:@"jump" ofType:@"wav"];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:soundPath], &soundID);
+    soundPath1 = [[NSBundle mainBundle] pathForResource:@"boing" ofType:@"wav"];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:soundPath1], &soundID1);
+    soundPath2 = [[NSBundle mainBundle] pathForResource:@"ouch" ofType:@"mp3"];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:soundPath2], &soundID2);
 }
 
 -(void)makeEnemies{
@@ -60,17 +67,15 @@
             [en removeFromSuperview];
         }
     }
-    
     enemies = [[NSMutableArray alloc] init];
-    if(rand() % 100 < 99){ // come back to later
         Enemy *e = [[Enemy alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         e.direction = -1;
         e.layer.contents = (id)[UIImage imageNamed:@"Flying-Turtle.GIF"].CGImage;
         //[e startAnimating];
-        [e setCenter:CGPointMake(rand() % (int)(bounds.size.width * .8), rand() % (int)((bounds.size.height * .6)))];
+        [e setCenter:CGPointMake(rand() % (int)(bounds.size.width * .8), 0)];
         [enemies addObject:e];
         [self addSubview:e];
-    }
+    
 }
 
 -(void)makeSprings{
@@ -134,10 +139,25 @@
 
 -(void)arrange:(CADisplayLink *)sender
 {
+    //random generate enemies and springs
     CFTimeInterval ts = [sender timestamp];
     if(timeevent == 0) timeevent = ts;
-    if(timeevent > 50){
-        if(springs == nil | [springs count] == 0)[self makeSprings];
+    printf("time: %f\n",timeevent-ts);
+    if(timeevent-ts < -3){
+        printf("PRNT");
+        if(rand() % 100 < 50){
+            if(springs == nil | [springs count] == 0)[self makeSprings];
+        }
+        timeevent = ts;
+    }
+    if(timeevent1 == 0) timeevent1 = ts;
+    if(timeevent1-ts < -3){
+        if(enemies == nil | [enemies count] == 0){
+            if(rand() % 100 < 70){
+                [self makeEnemies];
+            }
+            timeevent1 = ts;
+        }
     }
     
     CGRect bounds = [self bounds];
@@ -147,6 +167,7 @@
     
     if(lost == YES){
         [scoreLabel setText:[NSString stringWithFormat:@"YOU LOST"]];
+        [lostLabel setText:[NSString stringWithFormat:@"YOU LOST"]];
     }
     else{
     
@@ -204,6 +225,9 @@
                 bp.y -= bounds.size.height;
                 bp.x = rand() % (int)(bounds.size.width * .8);
                 [[Universe sharedInstance] setScore:[[Universe sharedInstance] score] + 1];
+                if([[Universe sharedInstance] score] > [[Universe sharedInstance] highscore]){
+                    [[Universe sharedInstance] setHighscore:[[Universe sharedInstance] score]];
+                }
             }
             [brick setCenter:bp];
         }
@@ -213,20 +237,40 @@
             bp.y -= [en dy];
             bp.x += [en dx];
             if(bp.y > bounds.size.height){
-                bp.y -= bounds.size.height;
-                bp.x = rand() % (int)(bounds.size.width * .8);
-                [en toggleDir];
+                //[en removeFromSuperview];
+                //[en delete:nil];
+                //if(ts - time > 3){
+                //    printf("TS:%f,TE:%f",ts,time);
+                //    [en setDy:+100];
+                 //   time = ts;
+                //}
+                //bp.y -= bounds.size.height;
+                //bp.x = rand() % (int)(bounds.size.width * .8);
+                //[en toggleDir];
+                if(bp.y > bounds.size.height){
+                    if (enemies)
+                    {
+                        for (Enemy *s in enemies)
+                        {
+                            [s removeFromSuperview];
+                        }
+                    }
+                    enemies = nil;
+                }
             }
-            if (bp.x < 0)
-                bp.x += bounds.size.width;
-            if (bp.x > bounds.size.width)
-                bp.x -= bounds.size.width;
-            [en setCenter:bp];
+            //else{
+                if (bp.x < 0)
+                    bp.x += bounds.size.width;
+                if (bp.x > bounds.size.width)
+                    bp.x -= bounds.size.width;
+                [en setCenter:bp];
+            //}
         }
         for(Spring *en in springs){
             CGPoint bp = [en center];
             bp.y -= [en dy];
             bp.x += [en dx];
+            [en setCenter:bp];
             if(bp.y > bounds.size.height){
                 if (springs)
                 {
@@ -237,15 +281,17 @@
                 }
                 springs = nil;
             }
-            [en setCenter:bp];
         }
         // If the jumper has fallen below the bottom of the screen,
         // add a positive velocity to move him
         if (p.y > bounds.size.height)
         {
             [jumper setDy: 10];
-            if([[Universe sharedInstance] lives] - 1 == 0)
+            AudioServicesPlaySystemSound(soundID2);
+            if([[Universe sharedInstance] lives] - 1 == 0){
+                [[Universe sharedInstance] setLives:[[Universe sharedInstance] lives]-1];
                 lost = YES;
+            }
             else{
                 [[Universe sharedInstance] setLives:[[Universe sharedInstance] lives]-1];
             }
@@ -262,41 +308,39 @@
         if (p.x > bounds.size.width)
             p.x -= bounds.size.width;
         
-        for(Enemy *en in enemies){
-            CGRect e = [en frame];
-            if(CGRectContainsPoint(e, p)){
-                [jumper setDy: 5];
-                if(tilt <=0) [jumper setDx:5];
-                else [jumper setDx:-5];
-                if([[Universe sharedInstance] lives] - 1 == 0)
-                lost = YES;
-                else{
-                    if(ts - time > 1){ [[Universe sharedInstance] setLives:[[Universe sharedInstance] lives]-1];
-                        time = ts;
-                    }
-                }
-            }
-        }
-        
         // If we are moving down, and we touch a brick, we get
         // a jump to push us up.
         if ([jumper dy] < 0)
         {
+            //bounce off enemy
+            for(Enemy *en in enemies){
+                CGRect e = [en frame];
+                if(CGRectContainsPoint(e, p) && [jumper dy] < .7){
+                    [[Universe sharedInstance] setScore:[[Universe sharedInstance] score] + 5   ];
+                    [jumper setDy: 12];
+                    [en setDy:-25];
+                    time = ts; //won't count as hit
+                }
+            }
+            //bounce off spring
             for (Spring *sp in springs){
                 CGRect s = [sp frame];
                 if (CGRectContainsPoint(s, p)){
-                    [jumper setDy:6];
+                    AudioServicesPlaySystemSound(soundID1);
+                    [jumper setDy:10];
                     for(Brick *brick1 in bricks) [brick1 setDy:-25];
                     for(Enemy *en in enemies) [en setDy:-25];
                     for(Spring *s in springs) [s setDy:-25];
                 }
             }
+            //bounce off brick
             for (Brick *brick in bricks)
             {
-                //CGPoint bl = [brick center];
                 CGRect b = [brick frame];
                 if (CGRectContainsPoint(b, p))
-                { // variable acceleration based on height
+                {   // Play sound
+                    AudioServicesPlaySystemSound(soundID);
+                    // variable acceleration based on height
                     if(b.origin.y < bounds.size.height*.1){
                         for(Brick *brick1 in bricks){
                             [jumper setDy:0];
@@ -332,6 +376,25 @@
                 }
             }
         }
+        
+        //if you hit enemy from under
+        for(Enemy *en in enemies){
+            CGRect e = [en frame];
+            if(CGRectContainsPoint(e, p)){
+                AudioServicesPlaySystemSound(soundID2);
+                [jumper setDy: 5];
+                if(tilt <=0) [jumper setDx:5];
+                else [jumper setDx:-5];
+                if([[Universe sharedInstance] lives] - 1 == 0)
+                    lost = YES;
+                else{
+                    if(ts - time > 1){ [[Universe sharedInstance] setLives:[[Universe sharedInstance] lives]-1];
+                        time = ts;
+                    }
+                }
+            }
+        }
+        
         [scoreLabel setText:[NSString stringWithFormat:@"Score: %d", [[Universe sharedInstance] score]]];
         [livesLabel setText:[NSString stringWithFormat:@"Lives: %d", [[Universe sharedInstance] lives]]];
         [jumper setCenter:p];

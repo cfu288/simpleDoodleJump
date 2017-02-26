@@ -12,11 +12,20 @@
 #import "Enemy.h"
 #import "Spring.h"
 #import "Universe.h"
+#import <AudioToolbox/AudioToolbox.h>
+
 
 @interface GameView : UIView {
     bool lost:YES;
     double time;
     double timeevent;
+    double timeevent1;
+    NSString *soundPath;
+    NSString *soundPath1;
+    NSString *soundPath2;
+    SystemSoundID soundID;
+    SystemSoundID soundID1;
+    SystemSoundID soundID2;
 }
 
 @property (nonatomic, strong) Jumper *jumper;
@@ -26,6 +35,7 @@
 @property (nonatomic) float tilt;
 @property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, strong) IBOutlet UILabel *livesLabel;
+@property (nonatomic, strong) IBOutlet UILabel *lostLabel;
 -(void)arrange:(CADisplayLink *)sender;
 
 @end

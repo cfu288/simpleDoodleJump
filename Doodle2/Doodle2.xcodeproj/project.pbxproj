@@ -16,11 +16,13 @@
 		747989551E46865F002B62A0 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 747989541E46865F002B62A0 /* GameView.m */; };
 		747989581E477E1A002B62A0 /* Jumper.m in Sources */ = {isa = PBXBuildFile; fileRef = 747989571E477E1A002B62A0 /* Jumper.m */; };
 		7479895B1E477E2C002B62A0 /* Brick.m in Sources */ = {isa = PBXBuildFile; fileRef = 7479895A1E477E2C002B62A0 /* Brick.m */; };
-		83A92A521E58DEFC003C2A0F /* wall1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83A92A511E58DEFC003C2A0F /* wall1.jpg */; };
 		83A92A551E58E0E5003C2A0F /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A92A541E58E0E5003C2A0F /* StartView.m */; };
 		83A92A571E5A97C2003C2A0F /* spring1.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A92A561E5A97C2003C2A0F /* spring1.png */; };
 		83A92A5A1E5A9852003C2A0F /* Spring.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A92A591E5A9852003C2A0F /* Spring.m */; };
 		83A92A5C1E5CE948003C2A0F /* springPlat.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A92A5B1E5CE948003C2A0F /* springPlat.png */; };
+		83A92A5E1E6289BC003C2A0F /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 83A92A5D1E6289BC003C2A0F /* jump.wav */; };
+		83A92A601E628CC9003C2A0F /* boing.wav in Resources */ = {isa = PBXBuildFile; fileRef = 83A92A5F1E628CC8003C2A0F /* boing.wav */; };
+		83A92A621E628F74003C2A0F /* ouch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83A92A611E628F74003C2A0F /* ouch.mp3 */; };
 		83CA89B31E5651D10001D5FB /* BackgroundImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83CA89B21E5651D10001D5FB /* BackgroundImage.jpg */; };
 		83CA89BB1E5658670001D5FB /* Left34x34.gif in Resources */ = {isa = PBXBuildFile; fileRef = 83CA89BA1E5658670001D5FB /* Left34x34.gif */; };
 		83CA89BD1E56586D0001D5FB /* Right34x34.gif in Resources */ = {isa = PBXBuildFile; fileRef = 83CA89BC1E56586D0001D5FB /* Right34x34.gif */; };
@@ -47,13 +49,15 @@
 		747989571E477E1A002B62A0 /* Jumper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Jumper.m; sourceTree = "<group>"; };
 		747989591E477E2C002B62A0 /* Brick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brick.h; sourceTree = "<group>"; };
 		7479895A1E477E2C002B62A0 /* Brick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brick.m; sourceTree = "<group>"; };
-		83A92A511E58DEFC003C2A0F /* wall1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wall1.jpg; sourceTree = "<group>"; };
 		83A92A531E58E0E5003C2A0F /* StartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartView.h; sourceTree = "<group>"; };
 		83A92A541E58E0E5003C2A0F /* StartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartView.m; sourceTree = "<group>"; };
 		83A92A561E5A97C2003C2A0F /* spring1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spring1.png; sourceTree = "<group>"; };
 		83A92A581E5A9852003C2A0F /* Spring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spring.h; sourceTree = "<group>"; };
 		83A92A591E5A9852003C2A0F /* Spring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spring.m; sourceTree = "<group>"; };
 		83A92A5B1E5CE948003C2A0F /* springPlat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = springPlat.png; sourceTree = "<group>"; };
+		83A92A5D1E6289BC003C2A0F /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
+		83A92A5F1E628CC8003C2A0F /* boing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boing.wav; sourceTree = "<group>"; };
+		83A92A611E628F74003C2A0F /* ouch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ouch.mp3; sourceTree = "<group>"; };
 		83CA89B21E5651D10001D5FB /* BackgroundImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BackgroundImage.jpg; sourceTree = "<group>"; };
 		83CA89BA1E5658670001D5FB /* Left34x34.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Left34x34.gif; sourceTree = "<group>"; };
 		83CA89BC1E56586D0001D5FB /* Right34x34.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Right34x34.gif; sourceTree = "<group>"; };
@@ -125,8 +129,10 @@
 		7479893C1E46863A002B62A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				83A92A611E628F74003C2A0F /* ouch.mp3 */,
+				83A92A5D1E6289BC003C2A0F /* jump.wav */,
+				83A92A5F1E628CC8003C2A0F /* boing.wav */,
 				83CA89B21E5651D10001D5FB /* BackgroundImage.jpg */,
-				83A92A511E58DEFC003C2A0F /* wall1.jpg */,
 				83CA89BE1E5658A70001D5FB /* CharacterSprites */,
 				7479893D1E46863A002B62A0 /* main.m */,
 			);
@@ -208,13 +214,15 @@
 				7479894C1E46863A002B62A0 /* LaunchScreen.storyboard in Resources */,
 				83CA89BB1E5658670001D5FB /* Left34x34.gif in Resources */,
 				83A92A571E5A97C2003C2A0F /* spring1.png in Resources */,
-				83A92A521E58DEFC003C2A0F /* wall1.jpg in Resources */,
 				83CA89C01E565C850001D5FB /* platform.png in Resources */,
 				83CA89C81E56A7600001D5FB /* Flying-Turtle.GIF in Resources */,
 				83A92A5C1E5CE948003C2A0F /* springPlat.png in Resources */,
 				747989491E46863A002B62A0 /* Assets.xcassets in Resources */,
 				83CA89B31E5651D10001D5FB /* BackgroundImage.jpg in Resources */,
+				83A92A601E628CC9003C2A0F /* boing.wav in Resources */,
+				83A92A5E1E6289BC003C2A0F /* jump.wav in Resources */,
 				83CA89BD1E56586D0001D5FB /* Right34x34.gif in Resources */,
+				83A92A621E628F74003C2A0F /* ouch.mp3 in Resources */,
 				747989471E46863A002B62A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

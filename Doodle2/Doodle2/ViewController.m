@@ -62,8 +62,8 @@
 
 -(IBAction)unwindForSegue:(UIStoryboardSegue *)unwindSegue towardsViewController:(UIViewController *)subsequentVC
 {
-    printf("Backing out of the other view controller.");
     [sv setHighscoreLab];
+    printf("Backing out of the other view controller.");
 }
 
 
