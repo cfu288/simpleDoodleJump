@@ -57,8 +57,8 @@
 
 -(void)makeEnemies{
     CGRect bounds = [self bounds];
-    float width = 70;
-    float height = 70;
+    float width = 80;
+    float height = 80;
     
     if (enemies)
     {
@@ -142,7 +142,7 @@
     //random generate enemies and springs
     CFTimeInterval ts = [sender timestamp];
     if(timeevent == 0) timeevent = ts;
-    printf("time: %f\n",timeevent-ts);
+    //printf("time: %f\n",timeevent-ts);
     if(timeevent-ts < -3){
         printf("PRNT");
         if(rand() % 100 < 50){
@@ -310,6 +310,7 @@
         
         // If we are moving down, and we touch a brick, we get
         // a jump to push us up.
+        bool skipCollision = NO;
         if ([jumper dy] < 0)
         {
             //bounce off enemy
@@ -320,6 +321,7 @@
                     [jumper setDy: 12];
                     [en setDy:-25];
                     time = ts; //won't count as hit
+                    skipCollision = YES;
                 }
             }
             //bounce off spring
@@ -378,6 +380,7 @@
         }
         
         //if you hit enemy from under
+        if(skipCollision == NO){
         for(Enemy *en in enemies){
             CGRect e = [en frame];
             if(CGRectContainsPoint(e, p)){
@@ -393,6 +396,7 @@
                     }
                 }
             }
+        }
         }
         
         [scoreLabel setText:[NSString stringWithFormat:@"Score: %d", [[Universe sharedInstance] score]]];
